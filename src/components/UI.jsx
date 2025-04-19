@@ -44,7 +44,7 @@ export const UI = () => {
       const actualScore = balloonsHit * 10 + targetHit * 50;
 
       const response = await fetch(
-        `http://127.0.0.1:3001/api/v1/users/${userId}/points`,
+        `https://backend.empireofbits.fun/api/v1/users/${userId}/points`,
         {
           method: "PUT",
           headers: {
@@ -169,7 +169,10 @@ export const UI = () => {
             </div>
             <div className="flex justify-center">
               <button
-                onClick={() => (window.location.href = "http://localhost:3000")}
+                onClick={() =>
+                  (window.location.href =
+                    "http://localhost:3000/?gameWon=true&gameName=AxeAscend&pointsEarned=100")
+                }
                 className="bg-white/80 text-black font-bold px-6 py-2 rounded-lg shadow-md hover:bg-white/100 transition duration-200 cursor-pointer"
               >
                 Return Home
