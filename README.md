@@ -2,7 +2,7 @@
 
 Throw. Pop. Ascend. Test your reflexes and precision in a 3D axe-throwing frenzy—and rise up the leaderboard while earning real-world rewards.
 
-[🔗 Play Now](https://axeascend.empireofbits.fun/)  
+[🔗 Play Now](https://axes.empireofbits.fun/)  
 [🌐 Powered by EmpireOfBits](https://www.empireofbits.fun/)
 
 ---
