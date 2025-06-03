@@ -29,13 +29,13 @@ export const UI = () => {
   const deductUserPoints = async () => {
     try {
       // Get userId from URL params or localStorage
-      const userId =
+      const walletAddress =
         new URLSearchParams(window.location.search).get("wallet") ||
         localStorage.getItem("userId");
 
-      console.log("User ID:", userId);
+      console.log("User ID:", walletAddress);
 
-      if (!userId) {
+      if (!walletAddress) {
         console.error("User ID not found");
         return;
       }
@@ -44,13 +44,14 @@ export const UI = () => {
       const actualScore = balloonsHit * 10 + targetHit * 50;
 
       const response = await fetch(
-        `https://backend1.empireofbits.fun/api/v1/users/${userId}/points`,
+        `http://127.0.0.1:3001/api/v1/walletUser/${walletAddress}/points`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            walletAddress,
             points: actualScore,
             operation: "add",
           }),
@@ -66,7 +67,7 @@ export const UI = () => {
 
       // Wait a bit before redirecting
       setTimeout(() => {
-        window.location.href = `https://www.empireofbits.fun/?gameWon=true&gameName=AxeAscend&pointsEarned=${actualScore}`;
+        window.location.href = `http://localhost:3000/?gameWon=true&gameName=AxeAscend&pointsEarned=${actualScore}`;
       }, 3000);
     } catch (error) {
       console.error("Error deducting points:", error);
@@ -171,7 +172,7 @@ export const UI = () => {
               <button
                 onClick={() =>
                   (window.location.href =
-                    "https://www.empireofbits.fun/?gameWon=true&gameName=AxeAscend&pointsEarned=100")
+                    "http://localhost:3000/?gameWon=true&gameName=AxeAscend&pointsEarned=100")
                 }
                 className="bg-white/80 text-black font-bold px-6 py-2 rounded-lg shadow-md hover:bg-white/100 transition duration-200 cursor-pointer"
               >
