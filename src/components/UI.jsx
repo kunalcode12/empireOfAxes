@@ -44,7 +44,7 @@ export const UI = () => {
       const actualScore = balloonsHit * 10 + targetHit * 50;
 
       const response = await fetch(
-        `http://127.0.0.1:3001/api/v1/walletUser/${walletAddress}/points`,
+        `https://be1.rostrafi.fun/api/v1/walletUser/${walletAddress}/points`,
         {
           method: "PUT",
           headers: {
@@ -67,7 +67,7 @@ export const UI = () => {
 
       // Wait a bit before redirecting
       setTimeout(() => {
-        window.location.href = `http://localhost:3000/?gameWon=true&gameName=AxeAscend&pointsEarned=${actualScore}`;
+        window.location.href = `https://www.rostrafi.fun/?gameWon=true&gameName=AxeAscend&pointsEarned=${actualScore}`;
       }, 3000);
     } catch (error) {
       console.error("Error deducting points:", error);
@@ -172,7 +172,7 @@ export const UI = () => {
               <button
                 onClick={() =>
                   (window.location.href =
-                    "http://localhost:3000/?gameWon=true&gameName=AxeAscend&pointsEarned=100")
+                    "https://www.rostrafi.fun/?gameWon=true&gameName=AxeAscend&pointsEarned=100")
                 }
                 className="bg-white/80 text-black font-bold px-6 py-2 rounded-lg shadow-md hover:bg-white/100 transition duration-200 cursor-pointer"
               >
